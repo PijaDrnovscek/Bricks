@@ -44,11 +44,6 @@
 		var dy = -10;         //kot odboja y os
 		var ballColor = "#503728"
 		var ballRadius = 20;  //velikost žoge
-		var paddlex = x;
-		var paddleh = 15;
-		var paddlew = 75;
-		var rightDown = false;
-		var leftDown = false;
 
 		function drawBall() {
 			ctx.beginPath();
@@ -58,15 +53,29 @@
 			ctx.closePath();
 		}
 
+		
+		function draw() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			drawBall();
+			
+			x += dx;
+			y += dy;
 				
-			if(x + dx  > canvas.width-ballRadius || x + dx < ballRadius) { //odboj po x osi || od kje se žoga odbije glede na radius(levo)
+			if(x + dx  > canvas.width-ballRadius || x + dx < ballRadius) { 
 				dx = -dx;
 			}
 			if(y + dy > canvas.height-ballRadius || y + dy< ballRadius) {
-			//odboj po y osi || od kje se žoga odbije glede na radius(gor)
 				dy = -dy;
 			}
-	
+			
+			
+			x += dx;
+			y += dy;
+			
+			clear();
+			circle(x, y, 10);
+
+		}
 		setInterval(draw, 100); 
 	</script>			
 </body>
