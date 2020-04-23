@@ -87,6 +87,9 @@ function draw(){
 		if(lives==0)
 			document.location.reload();
 		drawLives();
+	    	sekunde = 0;
+		izpisTimer = "00:00";
+		intTimer = setInterval(timer, 1000);
 	}
 	
 	
